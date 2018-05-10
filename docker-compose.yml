@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+   model_trainer:
+     build: 
+        context: . 
+        args:
+          GIT_USERNAME: ${GIT_USERNAME}
+          GIT_TOKEN: ${GIT_TOKEN}
+     image: thinkdeep/ceuki_bench:v1     
+     tty: true
+     ports:
+      - "8080:8080"
+     volumes:
+      - ./shared:/tmp/shared
+      - ./data:/root/MNIST
+
+
+            
